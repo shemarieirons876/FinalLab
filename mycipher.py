@@ -1,7 +1,10 @@
-import sys
+import sys, os
 
 num = int(sys.argv[1]) % 26
-msg = sys.stdin.read()
+if os.isatty(sys.stdin.fileno()):
+    msg = input()
+else:
+    msg = sys.stdin.read()
 
 msg = msg.upper()
 final = ""
